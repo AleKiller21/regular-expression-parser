@@ -1,6 +1,7 @@
 
 class BinaryOp {
-    constructor(left, right) {
+    constructor(left, right, name) {
+        this.name = name;
         this.left = left;
         this.right = right;
     }
