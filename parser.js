@@ -4,10 +4,11 @@ let Union = require('./nodes/union-node');
 let Concat = require('./nodes/concat');
 let Closure = require('./nodes/closure');
 let Character = require('./nodes/character');
+let Lexer = require('./lexer');
 
 class Parser {
-    constructor(lexer) {
-        this.lexer = lexer;
+    constructor(regex) {
+        this.lexer = new Lexer(regex);
         this.currentToken = this.lexer.getNextToken();
     }
 

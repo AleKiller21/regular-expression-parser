@@ -1,8 +1,7 @@
+'use strict';
 
-let Lexer = require('./lexer');
 let Parser = require('./parser');
 
-let lex = new Lexer('(0+1)*.0');
-let parser = new Parser(lex);
+let parser = new Parser('(0+1)*.0');
 let ast = parser.parse();
-console.log(JSON.stringify(ast, null, 4));
+console.log(JSON.stringify(ast, null, 3));
