@@ -5,11 +5,9 @@
 
 # Example
 ```javascript
-let Lexer = require('./lexer');
 let Parser = require('./parser');
 
-let lex = new Lexer('(0+1)*.0');
-let parser = new Parser(lex);
+let parser = new Parser('(0+1)*.0');
 let ast = parser.parse();
 console.log(JSON.stringify(ast, null, 3));
 ```
@@ -18,9 +16,11 @@ console.log(JSON.stringify(ast, null, 3));
 ```json
 {
    "object": {
+      "name": "concat",
       "left": {
          "name": "kleene",
          "expression": {
+            "name": "union",
             "left": {
                "name": "character",
                "value": "0"
@@ -28,15 +28,13 @@ console.log(JSON.stringify(ast, null, 3));
             "right": {
                "name": "character",
                "value": "1"
-            },
-            "name": "union"
+            }
          }
       },
       "right": {
          "name": "character",
          "value": "0"
-      },
-      "name": "concat"
+      }
    }
 }
 ```
